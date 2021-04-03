@@ -23,7 +23,6 @@ function startTimer() {
     
     intervalId = setInterval(function() {
         timer --;
-        console.log(timer);
         renderTimer();
         if(timer < 1){
             endGame();

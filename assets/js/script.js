@@ -25,6 +25,7 @@ function checkChoice(event) {
         // Move onto the next question.
         getNewQuestion()
     };
+    console.log(questions[questionIndex]);
 }
 
 function renderQuestion() {
@@ -48,9 +49,6 @@ function renderQuestion() {
         questionContainer.append(button);
 
     }
-    console.log(questionTitle);
-    console.log(choice);
-    
 }
 
 function clearList() {
@@ -62,7 +60,8 @@ function clearList() {
 function getNewQuestion() {
     clearList();
     renderQuestion();
-    questionIndex ++
+    questionIndex ++;
+    console.log(questions[questionIndex]);
     // WHEN the use selects an answer
     // THEN the user moves on to the next question
     // IF the user has answered all the questions
@@ -71,8 +70,6 @@ function getNewQuestion() {
 
 startGameButton.addEventListener('click', function(event) {
     event.preventDefault();
-
-    console.log("start button");
     // WHEN I click on the start button:
     // THEN I hide the landing page.
     landingPage.classList.add('d-none');
