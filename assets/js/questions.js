@@ -1,47 +1,47 @@
 const questions = [
     {
-        questionTitle: "JS1",
+        questionTitle: "Commonly used data types DO NOT include:",
         choices: [
-            "", 
-            "", 
-            "", 
-            ""],
-        answer: ""
+            "strings", 
+            "booleans", 
+            "alerts", 
+            "numbers"],
+        answer: "alerts"
     },
     {
-        questionTitle: "JS2",
+        questionTitle: "The condition in an if / else statement is enclosed with:",
         choices: [
-            "", 
-            "", 
-            "", 
-            ""],
-        answer: ""
+            "quotes", 
+            "curly brackets", 
+            "parenthesis", 
+            "square brackets"],
+        answer: "parenthesis"
     },
     {
-        questionTitle: "JS3",
+        questionTitle: "Arrays in JavaScript can be used to store:",
         choices: [
-            "", 
-            "", 
-            "", 
-            ""],
-        answer: ""
+            "numbers and strings", 
+            "other arrays", 
+            "booleans", 
+            "all of the above"],
+        answer: "all of the above"
     },
     {
-        questionTitle: "JS4",
+        questionTitle: "String values must be enclosed within ______ when being assigned to variables.",
         choices: [
-            "", 
-            "", 
-            "", 
-            ""],
-        answer: ""
+            "commas", 
+            "curly brackets", 
+            "quotes", 
+            "parenthesis"],
+        answer: "quotes"
     },
     {
-        questionTitle: "JS5",
+        questionTitle: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices: [
-            "", 
-            "", 
-            "", 
-            ""],
-        answer: ""
+            "JavaScript", 
+            "terminal / bash", 
+            "for loops", 
+            "console log"],
+        answer: "console log"
     },
 ]
