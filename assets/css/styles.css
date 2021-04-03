@@ -1,15 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Train+One&display=swap');
+
+body {
+    font-family: 'Special Elite', cursive;
+    color: white;
+    text-align: center;
+    background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg);
+    background-size:cover;
+    /* margin:0 */
+}
+
+section {
+    align-content: center;
+}
+
+button {
+    font-family: inherit;
+    display: block;
+    align-self: center;
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 5px;
+    width: 30%;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #00ffb3;
+    color: black;
+}
 
 .d-none {
     display: none;
 }
 
 .start-btn {
-  text-align: center;
-  background-color: #333;
-  font-size: 50px;
-  padding: 25px;
-  border: 5px groove #333;
-  border-radius: 2rem;
+    font-family: 'Train One', cursive;
+    text-align: center;
+    background: none;
+    font-size: 50px;
+    padding: 25px;
+    border: 5px groove #333;
+    border-radius: 2rem;
 }
 
 .start-btn:hover {
@@ -17,14 +51,14 @@
 }
 
 .start-btn b{
-  color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #00ffb3, 0 0 0.5em #00ffb3, 0 0 0.1em #00ffb3, 0 10px 3px #000;
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #00ffb3, 0 0 0.5em #00ffb3, 0 0 0.1em #00ffb3, 0 10px 3px #000;
 }
 .start-btn b span{
-  animation: blink linear infinite 2s;
+    animation: blink linear infinite 2s;
 }
 .start-btn b span:nth-of-type(2){
-  animation: blink linear infinite 3s;
+    animation: blink linear infinite 3s;
 }
 @keyframes blink {
   78% {
@@ -58,10 +92,4 @@
     color: inherit;
     text-shadow: inherit;
   }
-}
-
-/* display block for buttons */
-
-button {
-    display: block;
 }
