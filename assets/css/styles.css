@@ -1,0 +1,67 @@
+
+.d-none {
+    display: none;
+}
+
+.start-btn {
+  text-align: center;
+  background-color: #333;
+  font-size: 50px;
+  padding: 25px;
+  border: 5px groove #333;
+  border-radius: 2rem;
+}
+
+.start-btn:hover {
+    border: 5px outset rgb(155, 154, 154);
+}
+
+.start-btn b{
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #00ffb3, 0 0 0.5em #00ffb3, 0 0 0.1em #00ffb3, 0 10px 3px #000;
+}
+.start-btn b span{
+  animation: blink linear infinite 2s;
+}
+.start-btn b span:nth-of-type(2){
+  animation: blink linear infinite 3s;
+}
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+    
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+/* display block for buttons */
+
+button {
+    display: block;
+}

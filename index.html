@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="shortcut icon" type="image/jpg" href="./assets/images/favicon.jpg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+    <!--
+        Multi page:
+            Pros:
+            No dom manipulation.
+
+            Cons:
+            Can link to incorrect html page. If they go straight to the game page rather than the landing page this could confuse user reduce quality of UX.
+    -->
+
+    <!-- 
+        Single page:
+            Pros:
+            Good UX.
+            Cons:
+            Harder to implement.
+    -->
+
+    <!-- Landing page with start game button. -->
+
+    <main>
+
+        <section id="landing-page">
+
+            <h2>Javascript Code Quiz</h2>
+            <!-- <button id="btn-start-game" class="start-btn"><b>st<span>art</span> <span>ga</span>me</b></button> -->
+            <button id="btn-start-game">start game</button>
+
+        </section>
+
+        <section id="timer" class="d-none">
+
+            <h4>Timer: <span id="timer-count"></span></h4>
+            
+        </section>
+
+        <section id="question-container">
+
+        </section>
+
+        <!-- End game section -->
+
+        <section id="end-game-page">
+
+        </section>
+
+        <!-- High score section -->
+
+        <section id="high-score-page">
+
+        </section>
+        
+    </main>
+
+    <!--
+        WHEN I click on the start button:
+        THEN show question 1.
+        AND start the timer.
+    -->
+
+    <!-- 
+        WHEN the user clicks on an answer:
+        THEN 
+        THEN the user will move to next question.
+        IF they choose the incorrect answer.
+        THEN the remaining time is reduced.
+    -->
+
+    <!--
+        Game ends in 2 conditions:
+        1: All questions answered.
+        2: Timer runs out.
+    -->
+
+    <!-- 
+        When game ends:
+        Prompt the user to enter initial and display score.
+        Provide a link to high score page.
+    -->
+
+    <script src="assets/js/questions.js"></script>
+    <script src="assets/js/timer.js"></script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
