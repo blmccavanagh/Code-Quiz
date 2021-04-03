@@ -3,7 +3,7 @@ const startGameButton = document.getElementById('btn-start-game');
 const questionContainer = document.querySelector("#question-container");
 
 let score = 0;
-let questionIndex = 0;
+let questionIndex = -1;
 
 function checkChoice(event) {
     event.preventDefault();
@@ -58,9 +58,9 @@ function clearList() {
 }
 
 function getNewQuestion() {
+    questionIndex ++;
     clearList();
     renderQuestion();
-    questionIndex ++;
     console.log(questions[questionIndex]);
     // WHEN the use selects an answer
     // THEN the user moves on to the next question
