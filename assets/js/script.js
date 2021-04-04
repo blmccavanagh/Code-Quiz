@@ -1,9 +1,10 @@
 const landingPage = document.getElementById('landing-page');
-const startGameButton = document.getElementById('btn-start-game');
+const startGameButton = document.getElementById('start-game-btn');
 const questionContainer = document.querySelector("#question-container");
 const endGamePage = document.getElementById('end-game-page');
 const submitButton = document.getElementById('submit-btn');
 const highScorePage = document.getElementById('high-score-page');
+const tryAgainButton = document.getElementById('try-again-btn');
 
 // let score = timer;
 let questionIndex = -1;
@@ -91,9 +92,6 @@ function endGame() {
     // const finalScore = document.createElement('h1');
     // finalScore.textContent = score;
     // document.getElementById("result").innerHTML = score;
-    // const 
-    localStorage.setItem("score", score)
-    localStorage.setItem("initial", "")
     // WHEN the game ends
     // THEN the game over screen displays
     // THEN the user is presented with a text box where they can log their initials
@@ -104,22 +102,43 @@ function endGame() {
 const endGameEl = document.getElementById('end-game-form');
 let initialsInputEl = document.getElementById('#initials');
 
-
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
-    var userInitials = document.getElementsByClass('.form-input').val();
-    console.log(userInitials);
-    var initials = document.createElement('<li>' + userInitials + '</li>');
-    initials.appendTo(initialsInputEl);
-    userInitials.val('');
+    // let userInitials = document.getElementsByClass('.form-input').val();
+    // console.log(userInitials);
+    // let initials = document.createElement('<li>' + userInitials + '</li>');
+    // initials.appendTo(initialsInputEl);
+    // userInitials.val('');
+    // localStorage.setItem("score", score);
+    // localStorage.setItem("initial", "");
+    highScores();
 })
+
+// submitButton.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     var userInitials = document.getElementsByClass('.form-input').val();
+//     console.log(userInitials);
+//     var initials = document.createElement('<li>' + userInitials + '</li>');
+//     initials.appendTo(initialsInputEl);
+//     userInitials.val('');
+//     localStorage.setItem("score", score)
+//     localStorage.setItem("initial", "")
+// })
+
+function returnToHomepage() {
+    highScorePage.classList.add('.d-none');
+    landingPage.classList.remove('.d-none');
+}
 
 var highScore = localStorage.getItem("score");
 var initial = localStorage.getItem("initial");
 
 function highScores() {
+    endGamePage.classList.add('d-none');
     highScorePage.classList.remove('d-none');
 }
+
+tryAgainButton.addEventListener('click', returnToHomepage());
     // Create ordered list with high scores
     // WHEN the user has submitted their details
     // THEN the user is redirected to the 'high scores' screen
