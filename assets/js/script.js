@@ -126,8 +126,9 @@ submitButton.addEventListener('click', function(event) {
 // })
 
 function returnToHomepage() {
-    highScorePage.classList.add('.d-none');
-    landingPage.classList.remove('.d-none');
+    location.reload();
+    // highScorePage.classList.add('.d-none');
+    // landingPage.classList.remove('.d-none');
 }
 
 var highScore = localStorage.getItem("score");
@@ -138,7 +139,7 @@ function highScores() {
     highScorePage.classList.remove('d-none');
 }
 
-tryAgainButton.addEventListener('click', returnToHomepage());
+tryAgainButton.addEventListener('click', returnToHomepage);
     // Create ordered list with high scores
     // WHEN the user has submitted their details
     // THEN the user is redirected to the 'high scores' screen
