@@ -28,3 +28,5 @@ function startTimer() {
         }
     }, 1000);
 }
+
+// let score = Math.floor(time / 1000);
