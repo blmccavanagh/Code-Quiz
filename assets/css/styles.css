@@ -109,3 +109,13 @@ button:hover {
     text-shadow: inherit;
   }
 }
+
+#initials {
+    text-decoration: none;
+    font-family: 'Train One', cursive;
+    text-align: center;
+    background:rgb(0, 255, 179, 0.3);
+    font-size: 30px;
+    border: none;
+    border-radius: 2rem;
+}
