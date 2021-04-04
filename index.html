@@ -31,7 +31,7 @@
 
     <!-- Landing page with start game button. -->
 
-    <main>
+    <main class="pos-rel">
 
         <section id="landing-page">
 
@@ -44,10 +44,12 @@
 
             <h4>Timer:</h4>
             <h3 id="timer-count"></h3>
-            
+
         </section>
 
         <section id="question-container">
+
+            <p id="result"></p>
 
         </section>
 
@@ -62,11 +64,12 @@
             <br>
             <h2>YOUR INITIALS: </h2>
             <form id="end-game-form">
-                <input type="text" class="form-input" id="initials" name="initials" maxlength="3" placeholder="Enter initials here..." />
+                <input type="text" class="form-input" id="initials" name="initials" maxlength="3"
+                    placeholder="Enter initials here..." />
                 <br>
                 <br>
                 <button id="submit-btn" class="neon-btn">SUBMIT</button>
-              </form>
+            </form>
 
         </section>
 
@@ -79,7 +82,9 @@
             <button id="try-again-btn" class="neon-btn"><b>tr<span>y</span> aga<span>in...</span></b></button>
 
         </section>
-        
+
+            <footer class="pos-fix">Made by <span>B.</span></footer>
+
     </main>
 
     <!--
@@ -107,6 +112,8 @@
         Prompt the user to enter initial and display score.
         Provide a link to high score page.
     -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/questions.js"></script>
     <script src="assets/js/timer.js"></script>
