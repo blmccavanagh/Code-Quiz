@@ -16,14 +16,14 @@ section {
 button {
     font-family: inherit;
     display: block;
-    align-self: center;
+    /* align-self: center; */
     background-color: #333;
     border: none;
     color: white;
     padding: 15px 32px;
     margin: 5px;
-    width: 30%;
-    text-align: center;
+    width: 100%;
+    /* text-align: center; */
     text-decoration: none;
 }
 

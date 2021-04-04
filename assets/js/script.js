@@ -46,7 +46,7 @@ function renderQuestion() {
         const button = document.createElement('button');
         button.textContent = choice;
 
-        button.addEventListener('click', checkChoice)
+        button.addEventListener('click', checkChoice);
         questionContainer.append(button);
 
     };
