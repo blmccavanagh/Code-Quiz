@@ -36,6 +36,10 @@ button:hover {
     display: none;
 }
 
+.d-inline {
+    display: inline;
+}
+
 .start-btn {
     font-family: 'Train One', cursive;
     text-align: center;

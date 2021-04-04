@@ -1,9 +1,13 @@
 const landingPage = document.getElementById('landing-page');
 const startGameButton = document.getElementById('btn-start-game');
 const questionContainer = document.querySelector("#question-container");
+const endGamePage = document.getElementById('end-game-page');
+const submitButton = document.getElementById('submit-btn');
+const highScorePage = document.getElementById('high-score-page');
 
-let score = 0;
+// let score = timer;
 let questionIndex = -1;
+let question = '';
 
 function checkChoice(event) {
     event.preventDefault();
@@ -29,15 +33,11 @@ function checkChoice(event) {
 }
 
 function renderQuestion() {
-    const question = questions[questionIndex];
+    question = questions[questionIndex];
 
     const questionTitle = document.createElement('h1');
     questionTitle.textContent = question.questionTitle;
     questionContainer.append(questionTitle);
-    
-    // do this for list elements also
-    // const questionChoices = document.createElement('ul');
-    // questionContainer.append(questionChoices);
     
     for (let index = 0; index < question.choices.length; index++) {
         const choice = question.choices[index];
@@ -48,7 +48,8 @@ function renderQuestion() {
         button.addEventListener('click', checkChoice)
         questionContainer.append(button);
 
-    }
+    };
+    // if there are no questions left then end the game
 }
 
 function clearList() {
@@ -60,8 +61,13 @@ function clearList() {
 function getNewQuestion() {
     questionIndex ++;
     clearList();
-    renderQuestion();
     console.log(questions[questionIndex]);
+    if (questionIndex < questions.length) {
+        renderQuestion();
+    }
+    else {
+        endGame();
+    }
     // WHEN the use selects an answer
     // THEN the user moves on to the next question
     // IF the user has answered all the questions
@@ -80,6 +86,14 @@ startGameButton.addEventListener('click', function(event) {
 
 function endGame() {
     clearInterval(intervalId);
+    timerSection.classList.add("d-none");
+    endGamePage.classList.remove('d-none')
+    // const finalScore = document.createElement('h1');
+    // finalScore.textContent = score;
+    // document.getElementById("result").innerHTML = score;
+    // const 
+    localStorage.setItem("score", score)
+    localStorage.setItem("initial", "")
     // WHEN the game ends
     // THEN the game over screen displays
     // THEN the user is presented with a text box where they can log their initials
@@ -87,6 +101,26 @@ function endGame() {
     // THEN the information is stored in local storage
 }
 
+const endGameEl = document.getElementById('end-game-form');
+let initialsInputEl = document.getElementById('#initials');
+
+
+submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    var userInitials = document.getElementsByClass('.form-input').val();
+    console.log(userInitials);
+    var initials = document.createElement('<li>' + userInitials + '</li>');
+    initials.appendTo(initialsInputEl);
+    userInitials.val('');
+})
+
+var highScore = localStorage.getItem("score");
+var initial = localStorage.getItem("initial");
+
+function highScores() {
+    highScorePage.classList.remove('d-none');
+}
+    // Create ordered list with high scores
     // WHEN the user has submitted their details
     // THEN the user is redirected to the 'high scores' screen
     // THEN the user can see a list of high scores

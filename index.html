@@ -40,9 +40,10 @@
 
         </section>
 
-        <section id="timer" class="d-none">
+        <section id="timer-section" class="d-none">
 
-            <h4>Timer: <span id="timer-count"></span></h4>
+            <h4>Timer:</h4>
+            <h3 id="timer-count"></h3>
             
         </section>
 
@@ -52,13 +53,26 @@
 
         <!-- End game section -->
 
-        <section id="end-game-page">
+        <section id="end-game-page" class="d-none">
+            <h1>GAME OVER</h1>
+            <br>
+            <h3>YOUR SCORE:</h3>
+            <br>
+            <h2 id="timer-count"></h2>
+            <br>
+            <h2>YOUR INITIALS: </h2>
+            <form id="end-game-form">
+                <input type="text" class="form-input" id="initials" name="initials" placeholder="Enter initials here..." />
+                <button id="submit-btn">SUBMIT</button>
+              </form>
 
         </section>
 
         <!-- High score section -->
 
-        <section id="high-score-page">
+        <section id="high-score-page" class="d-none">
+            <h1>HIGH SCORES:</h1>
+            <ol></ol>
 
         </section>
         

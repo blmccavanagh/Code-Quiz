@@ -1,5 +1,5 @@
-let timer = 61;
-const timerSection = document.getElementById('timer')
+let timer = 60;
+const timerSection = document.getElementById('timer-section')
 const timerCount = document.getElementById('timer-count');
 let intervalId;
 
@@ -20,7 +20,6 @@ function deductTime(penalty){
 function startTimer() {
 
     timerSection.classList.remove("d-none");
-    
     intervalId = setInterval(function() {
         timer --;
         renderTimer();
