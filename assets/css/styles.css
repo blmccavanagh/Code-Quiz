@@ -28,8 +28,20 @@ button {
 }
 
 button:hover {
-    background-color: #00ffb3;
+    background-color: rgb(0, 255, 179);
     color: black;
+}
+
+#start-game-btn:hover {
+    background-color: rgb(0, 255, 179, 0.3);
+}
+
+#submit-btn:hover {
+    background-color: rgb(0, 255, 179, 0.3);
+}
+
+#try-again-btn:hover {
+    background-color: rgb(0, 255, 179, 0.3);
 }
 
 .d-none {
@@ -40,7 +52,7 @@ button:hover {
     display: inline;
 }
 
-.start-btn {
+.neon-btn {
     font-family: 'Train One', cursive;
     text-align: center;
     background: none;
@@ -50,18 +62,18 @@ button:hover {
     border-radius: 2rem;
 }
 
-.start-btn:hover {
+.neon-btn:hover {
     border: 5px outset rgb(155, 154, 154);
 }
 
-.start-btn b{
+.neon-btn b{
     color: #fee;
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #00ffb3, 0 0 0.5em #00ffb3, 0 0 0.1em #00ffb3, 0 10px 3px #000;
 }
-.start-btn b span{
+.neon-btn b span{
     animation: blink linear infinite 2s;
 }
-.start-btn b span:nth-of-type(2){
+.neon-btn b span:nth-of-type(2){
     animation: blink linear infinite 3s;
 }
 @keyframes blink {
