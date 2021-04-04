@@ -177,3 +177,14 @@ footer span {
         text-shadow: none;
     }
 }
+
+img {
+    height: 50px;
+    width: 50px;
+    opacity: 0.2;
+    border-radius: 1rem 0 1rem 0;
+}
+
+img:hover {
+    opacity: 1;
+}

@@ -5,6 +5,7 @@ const endGamePage = document.getElementById('end-game-page');
 const submitButton = document.getElementById('submit-btn');
 const highScorePage = document.getElementById('high-score-page');
 const tryAgainButton = document.getElementById('try-again-btn');
+const result = document.getElementById('result');
 
 // let score = timer;
 let questionIndex = -1;
@@ -16,16 +17,19 @@ function checkChoice(event) {
     const buttonClicked = event.target;  
 
     if(buttonClicked.textContent === questions[questionIndex].answer) {
-        // Add CSS to style answer green.
 
+        // Add CSS to style answer green.
+        result.innerHTML = "Nailed it.";
         // Move onto the next question.
         getNewQuestion()
     }
     else {
+
         // Add CSS to style answer red.
+        result.innerHTML = "Yeah, nah...";
 
         // Take 5 seconds from the timer.
-        deductTime(5)
+        deductTime(5);
 
         // Move onto the next question.
         getNewQuestion()
@@ -78,11 +82,12 @@ function getNewQuestion() {
 startGameButton.addEventListener('click', function(event) {
     event.preventDefault();
     // WHEN I click on the start button:
+    // THEN I start the timer.
+    startTimer();
     // THEN I hide the landing page.
     landingPage.classList.add('d-none');
     // THEN I show question 1.
     getNewQuestion();
-    startTimer();
 })
 
 function endGame() {
