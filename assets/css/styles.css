@@ -120,3 +120,7 @@ button:hover {
     border-radius: 2rem;
     text-transform: uppercase;
 }
+
+#initials:placeholder-shown {
+    text-transform: none;
+}
