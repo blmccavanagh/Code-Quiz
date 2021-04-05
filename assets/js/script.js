@@ -1,5 +1,6 @@
 const landingPage = document.getElementById('landing-page');
 const footerEl = document.getElementById('footer');
+const highScoreButton = document.getElementById('high-score-btn');
 const startGameButton = document.getElementById('start-game-btn');
 const questionContainer = document.querySelector("#question-container");
 const endGamePage = document.getElementById('end-game-page');
@@ -7,8 +8,6 @@ const submitButton = document.getElementById('submit-btn');
 const highScorePage = document.getElementById('high-score-page');
 const tryAgainButton = document.getElementById('try-again-btn');
 const result = document.getElementById('result');
-
-var finalScore = document.getElementById('final-score');
 
 // let score = timer;
 let questionIndex = -1;
@@ -94,12 +93,22 @@ startGameButton.addEventListener('click', function(event) {
     getNewQuestion();
 })
 
+highScoreButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    // WHEN I click on the high score button:
+    // THEN I am redirected to the high score page.
+    landingPage.classList.add('d-none');
+    highScorePage.classList.remove('d-none');
+})
+
 function endGame() {
     clearInterval(intervalId);
     timerSection.classList.add("d-none");
     endGamePage.classList.remove('d-none')
     footerEl.classList.remove('d-none');
-    finalScore.innerHtml = timerCount.textContent;
+    const finalScore = document.getElementById('final-score');
+    finalScore.innerHTML = timerCount.textContent;
+    console.log(timer.value);
     // const finalScore = document.createElement('h1');
     // finalScore.textContent = score;
     // document.getElementById("result").innerHTML = score;
@@ -111,30 +120,19 @@ function endGame() {
 }
 
 const endGameEl = document.getElementById('end-game-form');
-let initialsInputEl = document.getElementById('#initials');
+let initialsInputEl = document.getElementById('initials');
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
-    // let userInitials = document.getElementsByClass('.form-input').val();
-    // console.log(userInitials);
-    // let initials = document.createElement('<li>' + userInitials + '</li>');
-    // initials.appendTo(initialsInputEl);
-    // userInitials.val('');
-    // localStorage.setItem("score", score);
-    // localStorage.setItem("initial", "");
+    let userInitials = initialsInputEl.val('');
+    console.log(userInitials);
+    let initials = document.createElement('<li>' + userInitials + '</li>');
+    initials.appendTo(initialsInputEl);
+    userInitials.val('');
+    localStorage.setItem("score", finalScore);
+    localStorage.setItem("initial", "");
     highScores();
 })
-
-// submitButton.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     var userInitials = document.getElementsByClass('.form-input').val();
-//     console.log(userInitials);
-//     var initials = document.createElement('<li>' + userInitials + '</li>');
-//     initials.appendTo(initialsInputEl);
-//     userInitials.val('');
-//     localStorage.setItem("score", score)
-//     localStorage.setItem("initial", "")
-// })
 
 function returnToHomepage() {
     location.reload();
