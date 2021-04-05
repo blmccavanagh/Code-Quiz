@@ -23,22 +23,24 @@ function checkChoice(event) {
     const incorrectAnswer = "Yeah, nah...";
 
     if(buttonClicked.textContent === questions[questionIndex].answer) {
-
+        getNewQuestion();
         // Add CSS to style answer green.
-        result.innerHTML = correctAnswer.textContent;
+        result.textContent = correctAnswer;
         // Move onto the next question.
-        getNewQuestion()
+        // getNewQuestion()
+        console.log(result);
     }
     else {
-
-        // Add CSS to style answer red.
-        result.innerHTML = incorrectAnswer.textContent;
-
-        // Take 5 seconds from the timer.
+        getNewQuestion();
         deductTime(5);
+        // Add CSS to style answer red.
+        result.textContent = incorrectAnswer;
+        console.log(result);
+        // Take 5 seconds from the timer.
+        // deductTime(5);
 
         // Move onto the next question.
-        getNewQuestion()
+        // getNewQuestion()
     };
     console.log(questions[questionIndex]);
 }
@@ -152,6 +154,7 @@ submitButton.addEventListener('click', function(event) {
     saveUserDetails();
     // localStorage.setItem("initials", "score");
     highScores();
+    sortLeaderboardArray();
     renderLeaderboard();
 });
 
@@ -176,12 +179,7 @@ function checkForLocalStorageData() {
 }
 
 function renderLeaderboard() {
-    // let leaderboard = '';
-    // leaderboard = leaderboardArray[index];
-    // const questionTitle = document.createElement('h1');
-    // questionTitle.textContent = question.questionTitle;
-    // questionContainer.append(questionTitle);
-    // const savedUserDetails = leaderboardArray[index];
+
     for (i = 0; i < 10; i++) {
         const savedUserDetails = leaderboardArray[i];
         const leaderboardScores = document.createElement('li');
@@ -191,6 +189,13 @@ function renderLeaderboard() {
         leaderboardScores.textContent = (savedUserDetails.initials + "  " + savedUserDetails.score);
 
     };
+}
+
+function sortLeaderboardArray() {
+    // var highScoresLi = savedUserDetails.score;
+    // highScoresLi.sort(function(a,b){return b-a});
+    
+    leaderboardArray.sort(function(a,b){return b.score-a.score});
 }
 
 function returnToHomepage() {
