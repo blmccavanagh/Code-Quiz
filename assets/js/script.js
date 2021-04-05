@@ -5,6 +5,7 @@ const homeButton = document.getElementById('home-btn');
 const startGameButton = document.getElementById('start-game-btn');
 const questionContainer = document.querySelector("#question-container");
 const endGamePage = document.getElementById('end-game-page');
+const initialsInput = document.getElementById('initials');
 const submitButton = document.getElementById('submit-btn');
 const highScorePage = document.getElementById('high-score-page');
 const highScorePageList = document.getElementById('high-score-list');
@@ -23,26 +24,31 @@ function checkChoice(event) {
     const incorrectAnswer = "Yeah, nah...";
 
     if(buttonClicked.textContent === questions[questionIndex].answer) {
-        getNewQuestion();
-        // Add CSS to style answer green.
-        result.textContent = correctAnswer;
+        // Add text to indicate to user if they chose the correct answer.
+        // result.textContent = correctAnswer;
+        answerResult("Nailed it!", 500);
         // Move onto the next question.
-        // getNewQuestion()
-        console.log(result);
+        getNewQuestion();
     }
     else {
-        getNewQuestion();
-        deductTime(5);
-        // Add CSS to style answer red.
-        result.textContent = incorrectAnswer;
-        console.log(result);
-        // Take 5 seconds from the timer.
-        // deductTime(5);
-
+        answerResult("Yeah, nah...", 500);
         // Move onto the next question.
-        // getNewQuestion()
+        getNewQuestion();
+        // Take 5 seconds from the timer.
+        deductTime(5);
+        // Add text to indicate to user if they chose the incorrect answer.
+        // result.textContent = incorrectAnswer;
     };
-    console.log(questions[questionIndex]);
+}
+
+function answerResult(msg, duration) {
+    const el = document.createElement("div");
+    el.classList.add('result');
+    el.innerHTML = msg;
+    setTimeout(function(){
+        el.parentNode.removeChild(el);
+    }, duration);
+    result.appendChild(el);
 }
 
 function renderQuestion() {
@@ -75,7 +81,6 @@ function clearList() {
 function getNewQuestion() {
     questionIndex ++;
     clearList();
-    console.log(questions[questionIndex]);
     if (questionIndex < questions.length) {
         renderQuestion();
     }
@@ -147,16 +152,20 @@ function endGame() {
 }
 
 const endGameEl = document.getElementById('end-game-form');
-let initialsInputEl = document.getElementById('initials');
+const initialsInputEl = document.getElementById('initials');
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
+    // if(initialsInput.length != 3) {
+    //     window.alert('Whoops! Please enter 3 characters for your initials.');
+    //   }
+    // else {
     saveUserDetails();
-    // localStorage.setItem("initials", "score");
     highScores();
     sortLeaderboardArray();
     renderLeaderboard();
-});
+    // };
+})
 
 let leaderboardArray = [];
 
