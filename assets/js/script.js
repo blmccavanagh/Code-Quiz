@@ -1,11 +1,13 @@
 const landingPage = document.getElementById('landing-page');
 const footerEl = document.getElementById('footer');
 const highScoreButton = document.getElementById('high-score-btn');
+const homeButton = document.getElementById('home-btn');
 const startGameButton = document.getElementById('start-game-btn');
 const questionContainer = document.querySelector("#question-container");
 const endGamePage = document.getElementById('end-game-page');
 const submitButton = document.getElementById('submit-btn');
 const highScorePage = document.getElementById('high-score-page');
+const highScorePageList = document.getElementById('high-score-list');
 const tryAgainButton = document.getElementById('try-again-btn');
 const result = document.getElementById('result');
 
@@ -16,19 +18,21 @@ let question = '';
 function checkChoice(event) {
     event.preventDefault();
     
-    const buttonClicked = event.target;  
+    const buttonClicked = event.target;
+    const correctAnswer = "Nailed it.";
+    const incorrectAnswer = "Yeah, nah...";
 
     if(buttonClicked.textContent === questions[questionIndex].answer) {
 
         // Add CSS to style answer green.
-        result.textContent = "Nailed it.";
+        result.innerHTML = correctAnswer.textContent;
         // Move onto the next question.
         getNewQuestion()
     }
     else {
 
         // Add CSS to style answer red.
-        result.textContent = "Yeah, nah...";
+        result.innerHTML = incorrectAnswer.textContent;
 
         // Take 5 seconds from the timer.
         deductTime(5);
@@ -85,10 +89,12 @@ startGameButton.addEventListener('click', function(event) {
     event.preventDefault();
     // WHEN I click on the start button:
     // THEN I start the timer.
+    renderTimer();
     startTimer();
     // THEN I hide the landing page and footer.
     landingPage.classList.add('d-none');
     footerEl.classList.add('d-none');
+    homeButton.classList.remove('d-none');
     // THEN I show question 1.
     getNewQuestion();
 })
@@ -97,21 +103,39 @@ highScoreButton.addEventListener('click', function(event) {
     event.preventDefault();
     // WHEN I click on the high score button:
     // THEN I am redirected to the high score page.
+    saveUserDetails();
+    renderLeaderboard();
     landingPage.classList.add('d-none');
+    highScoreButton.classList.add('d-none');
+    timerSection.classList.add('d-none');
+    questionContainer.classList.add('d-none');
     highScorePage.classList.remove('d-none');
+    homeButton.classList.remove('d-none');
+    footerEl.classList.remove('d-none');
+})
+
+homeButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    // WHEN I click on the high score button:
+    // THEN I am redirected to the high score page.
+    // clearInterval(intervalId);
+    // homeButton.classList.add('d-none');
+    // questionContainer.classList.add('d-none');
+    // highScorePage.classList.add('d-none');
+    // timerSection.classList.add('d-none');
+    // landingPage.classList.remove('d-none');
+    // footerEl.classList.remove('d-none');
+    returnToHomepage();
 })
 
 function endGame() {
     clearInterval(intervalId);
     timerSection.classList.add("d-none");
+    questionContainer.classList.add('d-none');
     endGamePage.classList.remove('d-none')
     footerEl.classList.remove('d-none');
     const finalScore = document.getElementById('final-score');
     finalScore.innerHTML = timerCount.textContent;
-    console.log(timer.value);
-    // const finalScore = document.createElement('h1');
-    // finalScore.textContent = score;
-    // document.getElementById("result").innerHTML = score;
     // WHEN the game ends
     // THEN the game over screen displays
     // THEN the user is presented with a text box where they can log their initials
@@ -124,20 +148,52 @@ let initialsInputEl = document.getElementById('initials');
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
-    let userInitials = initialsInputEl.val('');
-    console.log(userInitials);
-    let initials = document.createElement('<li>' + userInitials + '</li>');
-    initials.appendTo(initialsInputEl);
-    userInitials.val('');
-    localStorage.setItem("score", finalScore);
-    localStorage.setItem("initial", "");
+    saveUserDetails();
+    // localStorage.setItem("initials", "score");
     highScores();
-})
+    renderLeaderboard();
+});
+
+let leaderboardArray = [];
+
+function saveUserDetails(){
+    let userInitialsAndScore = {
+        initials: initialsInputEl.value,
+        score: timer
+    };
+    checkForLocalStorageData();
+    leaderboardArray.push(userInitialsAndScore);
+    console.log(leaderboardArray);
+    window.localStorage.setItem("leaderboardArray", JSON.stringify(leaderboardArray));
+}
+
+function checkForLocalStorageData() {
+    let localStorageLeaderboard = localStorage.getItem("leaderboardArray");
+    if (localStorageLeaderboard !== null) {
+        leaderboardArray = JSON.parse(localStorageLeaderboard);
+    }
+}
+
+function renderLeaderboard() {
+    // let leaderboard = '';
+    // leaderboard = leaderboardArray[index];
+    // const questionTitle = document.createElement('h1');
+    // questionTitle.textContent = question.questionTitle;
+    // questionContainer.append(questionTitle);
+    // const savedUserDetails = leaderboardArray[index];
+    for (i = 0; i < 10; i++) {
+        const savedUserDetails = leaderboardArray[i];
+        const leaderboardScores = document.createElement('li');
+
+        highScorePageList.append(leaderboardScores);
+
+        leaderboardScores.textContent = (savedUserDetails.initials + "  " + savedUserDetails.score);
+
+    };
+}
 
 function returnToHomepage() {
     location.reload();
-    // highScorePage.classList.add('.d-none');
-    // landingPage.classList.remove('.d-none');
 }
 
 var highScore = localStorage.getItem("score");
@@ -145,7 +201,9 @@ var initial = localStorage.getItem("initial");
 
 function highScores() {
     endGamePage.classList.add('d-none');
+    highScoreButton.classList.add('d-none');
     highScorePage.classList.remove('d-none');
+    tryAgainButton.classList.remove('d-none');
 }
 
 tryAgainButton.addEventListener('click', returnToHomepage);

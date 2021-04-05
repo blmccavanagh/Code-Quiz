@@ -33,10 +33,13 @@
 
     <main>
 
+        <section>
+            <button id="home-btn" class="header-btn neon-btn pos-abs-l d-none"><b>home</b></button>
+            <button id="high-score-btn" class="header-btn neon-btn pos-abs-r"><b>high scores</b></button>
+        </section>
+
         <section id="landing-page">
 
-            <button id="high-score-btn" class="neon-btn pos-abs"><b>high scores</b></button>
-            <br><br><br>
             <h1>Javascript : The Basics</h1>
             <h2>Well hello there!</h2>
             <p>If you've been learning the basics to JavaScript, here is the chance to test your knowledge!</p>
@@ -84,12 +87,18 @@
         <!-- High score section -->
 
         <section id="high-score-page" class="d-none">
+
             <h1>HIGH SCORES:</h1>
-            <ol></ol>
-            <br>
-            <button id="try-again-btn" class="neon-btn"><b>tr<span>y</span> aga<span>in...</span></b></button>
+
+            <ul id="high-score-list"></ul>
 
         </section>
+
+        <div>
+
+            <button id="try-again-btn" class="neon-btn d-none"><b>tr<span>y</span> aga<span>in...</span></b></button>
+
+        </div>
 
             <footer id="footer" class="pos-rel">Made by <span>B.</span>
                 <br><br>

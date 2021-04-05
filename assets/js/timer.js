@@ -18,7 +18,6 @@ function deductTime(penalty){
 }
 
 function startTimer() {
-
     timerSection.classList.remove("d-none");
     intervalId = setInterval(function() {
         timer --;
