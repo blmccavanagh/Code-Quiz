@@ -8,6 +8,8 @@ const highScorePage = document.getElementById('high-score-page');
 const tryAgainButton = document.getElementById('try-again-btn');
 const result = document.getElementById('result');
 
+var finalScore = document.getElementById('final-score');
+
 // let score = timer;
 let questionIndex = -1;
 let question = '';
@@ -20,14 +22,14 @@ function checkChoice(event) {
     if(buttonClicked.textContent === questions[questionIndex].answer) {
 
         // Add CSS to style answer green.
-        result.innerHTML = "Nailed it.";
+        result.textContent = "Nailed it.";
         // Move onto the next question.
         getNewQuestion()
     }
     else {
 
         // Add CSS to style answer red.
-        result.innerHTML = "Yeah, nah...";
+        result.textContent = "Yeah, nah...";
 
         // Take 5 seconds from the timer.
         deductTime(5);
@@ -97,6 +99,7 @@ function endGame() {
     timerSection.classList.add("d-none");
     endGamePage.classList.remove('d-none')
     footerEl.classList.remove('d-none');
+    finalScore.innerHtml = timerCount.textContent;
     // const finalScore = document.createElement('h1');
     // finalScore.textContent = score;
     // document.getElementById("result").innerHTML = score;
