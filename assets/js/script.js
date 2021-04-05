@@ -193,7 +193,8 @@ function checkForLocalStorageData() {
 
 function renderLeaderboard() {
 
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 10 && i < leaderboardArray.length; i++) {
+
         const savedUserDetails = leaderboardArray[i];
         const leaderboardScores = document.createElement('li');
 
