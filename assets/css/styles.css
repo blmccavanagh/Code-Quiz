@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Train+One&family=Homemade+Apple&family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Train+One&family=Homemade+Apple&family=Raleway+Dots&family=Major+Mono+Display&display=swap');
 
 body {
     font-family: 'Special Elite', cursive;
@@ -8,6 +8,7 @@ body {
     background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg);
     background-size:cover;
     animation: mymove 1s infinite;
+    position: relative;
 }
 
 @keyframes mymove {
@@ -49,7 +50,7 @@ button:hover {
     color: black;
 }
 
-#start-game-btn:hover {
+/* #start-game-btn:hover {
     background-color: rgb(0, 255, 179, 0.3);
     border-color: rgb(0, 255, 179, 0.8);
 }
@@ -62,7 +63,7 @@ button:hover {
 #try-again-btn:hover {
     background-color: rgb(0, 255, 179, 0.3);
     border-color: rgb(0, 255, 179, 0.8);
-}
+} */
 
 .d-none {
     display: none;
@@ -84,7 +85,9 @@ button:hover {
 }
 
 .neon-btn:hover {
-    border: 5px outset rgb(155, 154, 154);
+    /* border: 5px outset rgb(155, 154, 154); */
+    background-color: rgb(0, 255, 179, 0.3);
+    border-color: rgb(0, 255, 179, 0.8);
 }
 
 .neon-btn b{
@@ -131,13 +134,20 @@ button:hover {
   }
 }
 
-.correct {
+#high-score-btn {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 15px;
+    padding: 10px 5px;
+    border: 3px groove rgb(0, 255, 179, 0.4);
+}
+
+/* .correct {
     background-color: rgb(0, 255, 0);
 }
 
 .incorrect {
     background-color: rgb(255, 0, 0);
-}
+} */
 
 #initials {
     text-decoration: none;
@@ -154,16 +164,16 @@ button:hover {
     text-transform: none;
 }
 
-/* .pos-rel {
+.pos-rel {
     position: relative;
 }
 
-.pos-fix {
+.pos-abs {
     position: absolute;
-    width: 100%;
-    bottom: 0;
-    align-self: center;
-} */
+    width: 15%;
+    top: 0;
+    right: 0;
+}
 
 footer {
     font-family: 'Homemade Apple', cursive;
@@ -230,6 +240,10 @@ img:hover {
 
     p {
         font-size: 20px;
+    }
+
+    .pos-abs {
+        width: 50%;
     }
 
     footer {
