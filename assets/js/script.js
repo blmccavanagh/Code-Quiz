@@ -112,6 +112,7 @@ highScoreButton.addEventListener('click', function(event) {
     // WHEN I click on the high score button:
     // THEN I am redirected to the high score page.
     saveUserDetails();
+    sortLeaderboardArray();
     renderLeaderboard();
     landingPage.classList.add('d-none');
     highScoreButton.classList.add('d-none');
@@ -160,6 +161,10 @@ submitButton.addEventListener('click', function(event) {
     //     window.alert('Whoops! Please enter 3 characters for your initials.');
     //   }
     // else {
+    if (!initialsInputEl.value) {
+        alert('this field is required');
+        return;
+      }
     saveUserDetails();
     highScores();
     sortLeaderboardArray();
@@ -176,7 +181,6 @@ function saveUserDetails(){
     };
     checkForLocalStorageData();
     leaderboardArray.push(userInitialsAndScore);
-    console.log(leaderboardArray);
     window.localStorage.setItem("leaderboardArray", JSON.stringify(leaderboardArray));
 }
 
