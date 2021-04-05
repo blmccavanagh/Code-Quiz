@@ -168,6 +168,21 @@ button:hover {
     right: 0;
 }
 
+#timer-section {
+    width: 20%;
+    margin: 0 40%;
+    font-size: 35px;
+    padding: 5px;
+    background-color: rgb(0, 255, 179, 0.2);
+    border-color: rgb(0, 255, 179, 0.8);
+    border-radius: 6rem;
+    text-shadow: none;
+}
+
+.answer-button {
+    font-size: 25px;
+}
+
 ul {
     list-style-type: none;
     font-family: 'Space Mono', monospace;
@@ -265,11 +280,44 @@ img:hover {
     }
 
     .pos-abs-r {
-        width: 50%;
+        width: 30%;
     }
 
     .pos-abs-l {
+        width: 30%;
+        padding: 18px 0;
+    }
+    
+    #timer-section {
         width: 50%;
+        margin: 10px 25%;
+        font-size: 25px;
+        padding: 5px;
+        border-radius: 4.5rem;
+    }
+
+    form input {
+        width: 75%;
+    }
+
+    input::placeholder {
+        font-size: 25px;
+    }
+
+    ul li:nth-of-type(6) {
+        display: none;
+    }
+    ul li:nth-of-type(7) {
+        display: none;
+    }
+    ul li:nth-of-type(8) {
+        display: none;
+    }
+    ul li:nth-of-type(9) {
+        display: none;
+    }
+    ul li:nth-of-type(10) {
+        display: none;
     }
 
     footer {

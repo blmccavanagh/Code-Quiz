@@ -46,7 +46,7 @@ function checkChoice(event) {
 function renderQuestion() {
     question = questions[questionIndex];
 
-    const questionTitle = document.createElement('h1');
+    const questionTitle = document.createElement('h2');
     questionTitle.textContent = question.questionTitle;
     questionContainer.append(questionTitle);
     
@@ -54,6 +54,7 @@ function renderQuestion() {
         const choice = question.choices[index];
 
         const button = document.createElement('button');
+        button.classList.add('answer-button');
         button.textContent = choice;
 
         button.addEventListener('click', checkChoice);
