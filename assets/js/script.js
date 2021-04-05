@@ -1,4 +1,5 @@
 const landingPage = document.getElementById('landing-page');
+const footerEl = document.getElementById('footer');
 const startGameButton = document.getElementById('start-game-btn');
 const questionContainer = document.querySelector("#question-container");
 const endGamePage = document.getElementById('end-game-page');
@@ -84,8 +85,9 @@ startGameButton.addEventListener('click', function(event) {
     // WHEN I click on the start button:
     // THEN I start the timer.
     startTimer();
-    // THEN I hide the landing page.
+    // THEN I hide the landing page and footer.
     landingPage.classList.add('d-none');
+    footerEl.classList.add('d-none');
     // THEN I show question 1.
     getNewQuestion();
 })
@@ -94,6 +96,7 @@ function endGame() {
     clearInterval(intervalId);
     timerSection.classList.add("d-none");
     endGamePage.classList.remove('d-none')
+    footerEl.classList.remove('d-none');
     // const finalScore = document.createElement('h1');
     // finalScore.textContent = score;
     // document.getElementById("result").innerHTML = score;
