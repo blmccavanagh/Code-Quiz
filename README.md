@@ -22,4 +22,8 @@ In order to make the website stand out from my peers I had a particular focus on
 
 ### Quiz Example Gif
 
-![portfolio demo](./assets/images/README/)
+![portfolio demo](./assets/images/README/start-btn-quiz-enter-high-score.gif)
+
+### High Score page and Home Page button links
+
+![portfolio demo](./assets/images/README/high-score-btn-home-page-btn.gif)
