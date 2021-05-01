@@ -5,8 +5,8 @@ body {
     color: white;
     text-shadow: 1px 1px rgb(0, 255, 179, 0.6);
     text-align: center;
-    background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg);
-    background-size:cover;
+    background: #112 url(../images/background-image-1.jpg);
+    /* background-size:cover; */
     animation: mymove 1s infinite;
     position: relative;
     height: 100%;
@@ -225,7 +225,7 @@ footer {
     color: white;
 }
 
-footer span {
+footer span:nth-of-type(2) {
     font-family: 'Raleway Dots', cursive;
     font-size: 60px;
     animation: flicker 1.5s infinite alternate;
